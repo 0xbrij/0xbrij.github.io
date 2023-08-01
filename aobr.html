@@ -1,34 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Simple Quiz</title>
+    <title>AOBR Quiz</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="quiz-container">
-        <h1>Quiz</h1>
-        <h6>Start from: 
-            <input type="text" id="idStartQuesNo" value="0" oninput="updateCurrentQuestion()"/></br>
-            RandomQuestions ? <input type="checkbox" id="idCheckRandom" class="randomCheckBox"/> 
-           
-
-        </h6>
+        <h1>AOBR Quiz</h1>
+        <h5>Start from: 
+            <input type="text" id="idStartQuesNo" value="0" oninput="updateCurrentQuestion()" size="5"/>
+            Random <input type="checkbox" id="idCheckRandom" class="randomCheckBox"/> 
+        </h5>
         <!-- <h4 id="idscore">Score</h4> -->
         <h4 id="idattempted">Attempted</h4>
         <div id="question"></div>
-        <!-- <div id="options">
-            <input type="radio" name="choice" value="0" id="option0">
-            <label for="option0" id="label0"></label><br>
-            <input type="radio" name="choice" value="1" id="option1">
-            <label for="option1" id="label1"></label><br>
-            <input type="radio" name="choice" value="2" id="option2">
-            <label for="option2" id="label2"></label><br>
-            <input type="radio" name="choice" value="3" id="option3">
-            <label for="option3" id="label3"></label><br>
-        </div> -->
+        
         <!-- <button onclick="submitAnswer()">Submit</button> -->
         <button onclick="showAnswer()" id="idShowBtn">ShowAnswer</button>
-
+        <p>  </p>
         
         <div id="idanswer1">
             <div id="idanswer"></div>

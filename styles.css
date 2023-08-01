@@ -15,22 +15,21 @@ body {
     padding: 20px;
     border-radius: 10px;
     min-width: 700px;
-    max-width: 400px;
-    text-align: center;
+    text-align: left;
 }
 
 #question {
     min-width: 500px;
     max-width: 700px;
     min-height:50px;
-    text-align: center;
+    text-align: left;
 }
 
 #idanswer1 {
     min-width: 500px;
     max-width: 700px;
     min-height:100px;
-    text-align: center;
+    text-align: left;
 }
 
 #options {
