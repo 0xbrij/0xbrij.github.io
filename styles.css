@@ -22,7 +22,7 @@ body {
 
 #question {
     min-width: 80%;
-    min-height: 12vh;
+    min-height: 15vh;
     text-align: left;
 }
 button {
@@ -33,7 +33,7 @@ button {
 
 #idanswer1 {
     min-width: 80%;
-    min-height:150px;
+    min-height:200px;
     text-align: left;
 }
 
