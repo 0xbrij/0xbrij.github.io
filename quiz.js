@@ -1050,7 +1050,7 @@ function displayQuestion() {
 
 
     ansRemark = questions[currentQuestion].Remarks;
-    document.getElementById("idanswer").textContent = "Ans:   "+ questions[currentQuestion].Department;
+    document.getElementById("idanswer").textContent = questions[currentQuestion].Department;
     if(ansRemark)
         document.getElementById("idremarks").textContent = "Remarks::"+ansRemark;
     else
