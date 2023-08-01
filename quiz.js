@@ -909,7 +909,7 @@ const csv = `SNo,Ministry,Department,Item,Remarks
 888,D/o Space,D/o Space,North Eastern Space Application Center,`;
 
 
-const departments = new Set();;
+const departments = new Set();
 
 String.prototype.splitCSV = function(sep) {
     var regex = /(\s*""[^""]+'|\s*[^,]+)(?=,|$)/g;
@@ -1052,7 +1052,9 @@ function displayQuestion() {
 
     ansRemark = questions[currentQuestion].Remarks;
     document.getElementById("idanswer").textContent = questions[currentQuestion].Department;
+    console.log('questions[currentQuestion].Ministry :',questions[currentQuestion].Ministry);
     document.getElementById("idministry").textContent = questions[currentQuestion].Ministry;
+
     if(ansRemark)
         document.getElementById("idremarks").textContent = "Remarks::"+ansRemark;
     else
