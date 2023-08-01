@@ -989,6 +989,7 @@ function csvToJson(csv) {
 let currentQuestion = 1;
 let score = 0;
 let correctAnswer = '';
+let correctMinistry = '';
 let selectedAnswer = '';
 let ansRemark = '';
 let attemptedNo = 0;
@@ -1051,6 +1052,7 @@ function displayQuestion() {
 
     ansRemark = questions[currentQuestion].Remarks;
     document.getElementById("idanswer").textContent = questions[currentQuestion].Department;
+    document.getElementById("idministry").textContent = questions[currentQuestion].Ministry;
     if(ansRemark)
         document.getElementById("idremarks").textContent = "Remarks::"+ansRemark;
     else
@@ -1127,12 +1129,16 @@ function hideAnswer(){
     ans.style.display = "none";
     let rem = document.getElementById("idremarks");
     rem.style.display = "none";
+    let min = document.getElementById("idministry");
+    min.style.display = "none";
 }
 function showAnswer(){
     let btn = document.getElementById("idShowBtn");
     if(btn.innerHTML == "ShowAnswer"){
         let ans = document.getElementById("idanswer");
         ans.style.display = "block";
+        let min = document.getElementById("idministry");
+    min.style.display = "block";
         let rem = document.getElementById("idremarks");
         rem.style.display = "block";
         btn.innerHTML = "Next"
