@@ -6,7 +6,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 70vh;
+    font-size: 30px;
 }
 
 .quiz-container {
@@ -14,20 +15,22 @@ body {
     color: #222;
     padding: 20px;
     border-radius: 10px;
-    min-width: 700px;
+    width: 80%;
+    min-height: 60%;
     text-align: left;
 }
 
 #question {
-    min-width: 500px;
-    max-width: 700px;
-    min-height:50px;
+    min-width: 80%;
+    min-height:150px;
     text-align: left;
+}
+button {
+    width: 200px;
 }
 
 #idanswer1 {
-    min-width: 500px;
-    max-width: 700px;
+    min-width: 80%;
     min-height:100px;
     text-align: left;
 }

@@ -984,7 +984,7 @@ function csvToJson(csv) {
   
 //   console.log(jsonString);
 //   console.log('-----------------------');
-  console.log(alldepartments);
+  // console.log(alldepartments);
 
 let currentQuestion = 1;
 let score = 0;
@@ -1050,7 +1050,7 @@ function displayQuestion() {
 
 
     ansRemark = questions[currentQuestion].Remarks;
-    document.getElementById("idanswer").textContent = questions[currentQuestion].Department;
+    document.getElementById("idanswer").textContent = "Ans:   "+ questions[currentQuestion].Department;
     if(ansRemark)
         document.getElementById("idremarks").textContent = "Remarks::"+ansRemark;
     else
