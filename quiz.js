@@ -20,7 +20,7 @@ const questions1 = [
 
 const csv = `SNo,Ministry,Department,Item,Remarks
 1,M/o Agri. and FW,D/o Ag. & FW,Administration of the Dangerous Machine ( Regulation) Act 1983,
-2,M/o Agri. and FW,D/o Ag. & FW,﻿Convention on Locust Control,
+2,M/o Agri. and FW,D/o Ag. & FW,Convention on Locust Control,
 3,M/o Agri. and FW,D/o Ag. & FW,"Liason with international org's, handling CARE goods",
 4,M/o Agri. and FW,D/o Ag. & FW,Administration of the fertilizer (control) orders 1957,
 5,M/o Agri. and FW,D/o Ag. & FW,"Administration of the insecticides Act, 1968",
