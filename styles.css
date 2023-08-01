@@ -7,7 +7,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 80vh;
-    font-size: 55px;
+    font-size: 35px;
 }
 
 .quiz-container {
@@ -16,13 +16,13 @@ body {
     padding: 15px;
     border-radius: 10px;
     width: 90%;
-    min-height: 80%;
+    min-height: 90%;
     text-align: left;
 }
 
 #question {
     min-width: 80%;
-    min-height: 15vh;
+    min-height: 12vh;
     text-align: left;
 }
 button {
@@ -33,7 +33,7 @@ button {
 
 #idanswer1 {
     min-width: 80%;
-    min-height:100px;
+    min-height:150px;
     text-align: left;
 }
 
