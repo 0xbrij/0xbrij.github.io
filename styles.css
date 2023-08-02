@@ -27,12 +27,12 @@ body {
 }
 button {
     width: 60%;
-    height: 100px;
+    height: 70px;
     font-size: 45px;
 }
 button#idBackBtn{
     width: 20%;
-    height: 100px;
+    height: 70px;
     font-size: 45px;
 }
 
