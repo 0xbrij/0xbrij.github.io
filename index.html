@@ -9,7 +9,7 @@
         <h2>AOBR Quiz</h2>
         <h5>Start from: 
             <input type="text" id="idStartQuesNo" value="0" oninput="updateCurrentQuestion()" size="5"/>
-            Random <input type="checkbox" id="idCheckRandom" class="randomCheckBox"/> 
+            Random <input type="checkbox" id="idCheckRandom" class="randomCheckBox" onchange="updateRandomQuestion()"/> 
         </h5>
         <!-- <h4 id="idscore">Score</h4> -->
         <h4 id="idattempted">Attempted</h4>
@@ -25,7 +25,7 @@
             <div id="idministry"></div>
             <div id="idremarks"></div>
         </div>
-        
+        <div id="idmessage"></div>
     </div>
 
     <script src="quiz.js"></script>
