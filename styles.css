@@ -30,6 +30,11 @@ button {
     height: 100px;
     font-size: 45px;
 }
+button#idBackBtn{
+    width: 20%;
+    height: 100px;
+    font-size: 45px;
+}
 
 #idanswer1 {
     min-width: 80%;

@@ -38,7 +38,7 @@ const csv = `SNo,Ministry,Department,Item,Remarks,,
 17,D/o Space,D/o Space,Antrix Corporation Ltd.,,,
 18,D/o Space,D/o Space,North Eastern Space Application Center,,,
 19,M/o Agri. and FW,D/o Ag. & FW,Administration of the Dangerous Machine ( Regulation) Act 1983,,,
-20,M/o Agri. and FW,D/o Ag. & FW,﻿Convention on Locust Control,,,
+20,M/o Agri. and FW,D/o Ag. & FW,Convention on Locust Control,,,
 21,M/o Agri. and FW,D/o Ag. & FW,"Liason with international org's, handling CARE goods",,,
 22,M/o Agri. and FW,D/o Ag. & FW,Administration of the fertilizer (control) orders 1957,,,
 23,M/o Agri. and FW,D/o Ag. & FW,"Administration of the insecticides Act, 1968",,,
@@ -55,7 +55,7 @@ const csv = `SNo,Ministry,Department,Item,Remarks,,
 34,M/o Agri. and FW,D/o Ag. & FW,Matters related to loss of human life due to drought ,,,
 35,M/o Agri. and FW,D/o Ag. & FW,Monitoring of Pesticide residences at national level,,,
 36,M/o Agri. and FW,D/o Ag. & FW,National land use & conservation Board,,,
-37,M/o Agri. and FW,D/o Ag. & FW,﻿National Rainfed Area Authority (NRAA),,,
+37,M/o Agri. and FW,D/o Ag. & FW,National Rainfed Area Authority (NRAA),,,
 38,M/o Agri. and FW,D/o Ag. & FW,Organisation & development of extension eduction & trainng in the country,,,
 39,M/o Agri. and FW,D/o Ag. & FW,Plant Quarantine,,,
 40,M/o Agri. and FW,D/o Ag. & FW,"Price control of agricultural commodities except food grains, sugar and vanaspati, oil seeds, vegetable oils, cakes and fats, jute, cotton, tea",,,
@@ -65,8 +65,8 @@ const csv = `SNo,Ministry,Department,Item,Remarks,,
 44,M/o Agri. and FW,D/o Ag. & FW,Shellac Industry,,,
 45,M/o Agri. and FW,D/o Ag. & FW,Technology mission on oil seeds & pulses ,,,
 46,M/o Agri. and FW,D/o Ag. & FW,On Farm Water Management,,,
-47,M/o Agri. and FW,D/o Ag. & FW,﻿Crop Insurance.,,,
-48,M/o Agri. and FW,D/o Ag. & FW,﻿Warehousing in rural areas including rural godowns.2,,,
+47,M/o Agri. and FW,D/o Ag. & FW,Crop Insurance.,,,
+48,M/o Agri. and FW,D/o Ag. & FW,Warehousing in rural areas including rural godowns.2,,,
 49,M/o Agri. and FW,D/o Ag. & FW,"﻿Development of Cotton, Jute and Sugarcane.",,,
 50,M/o Agri. and FW,D/o Ag. & FW,"﻿All attached and Subordinate Offices or other organisations concerned with any of the subjects specified in this list except the Directorate of Agricultural Aviation.",,,
 51,M/o Agri. and FW,D/o Ag. & FW,Ware housing in rural areas including rural godowns,,,
@@ -92,9 +92,9 @@ const csv = `SNo,Ministry,Department,Item,Remarks,,
 71,M/o Chemical and Fertilizers,D/o Fertilizers,"Adminstration of the fertilizers (Movement control) order, 1960",,,
 72,M/o Chemical and Fertilizers,D/o Fertilizers,IFFCO,,,
 73,M/o Chemical and Fertilizers,D/o Fertilizers,"﻿Allocation and supply linkages for movement and distribution of urea in terms of assessment made by the Department of Agriculture and Farmers Welfare",,,
-74,M/o Chemical and Fertilizers,D/o Fertilizers,﻿Krishak Bharati Cooperative Limited (KRIBHCO),,,
+74,M/o Chemical and Fertilizers,D/o Fertilizers,Krishak Bharati Cooperative Limited (KRIBHCO),,,
 75,M/o Chemical and Fertilizers,D/o Pharmaceuticals,"﻿Drugs and Pharmaceuticals, excluding those specifically allotted to other departments.",,,
-76,M/o Chemical and Fertilizers,D/o Pharmaceuticals,﻿All matters relating to National Institutes for Pharmacy Education and Research,,,
+76,M/o Chemical and Fertilizers,D/o Pharmaceuticals,All matters relating to National Institutes for Pharmacy Education and Research,,,
 77,M/o Chemical and Fertilizers,D/o Pharmaceuticals,"﻿Medical Devices – Industry issues relating to promotion, production and manufacture; ",,,
 78,M/o Chemical and Fertilizers,D/o Pharmaceuticals,"Bengal Chemicals & Pharmaceuticals limited, ",,,
 79,M/o Chemical and Fertilizers,D/o Pharmaceuticals,Hindustan antibiotics Ltd.,,,
@@ -106,8 +106,8 @@ const csv = `SNo,Ministry,Department,Item,Remarks,,
 85,M/o Coal,M/o Coal,"Coal Mines Labour Welfare Fund Act, 1947",,,
 86,M/o Coal,M/o Coal,"Coal Mines PF & MP Act, 1948",,,
 87,M/o Coal,M/o Coal,The Coal Mines PF organisation,,,
-88,M/o Coal,M/o Coal,﻿Development and operation of coal washeries other than those for which the Department of Steel is responsible.,,,
-89,M/o Coal,M/o Coal,﻿Low temperature carbonisation of coal and production of synthetic oil from coal,,,
+88,M/o Coal,M/o Coal,Development and operation of coal washeries other than those for which the Department of Steel is responsible.,,,
+89,M/o Coal,M/o Coal,Low temperature carbonisation of coal and production of synthetic oil from coal,,,
 90,M/o Coal,M/o Coal,The Coal Mines Welfare organisation ,,,
 91,M/o Comm & Industry,D/o Commerce,All matters related to foreign Trade,,,
 92,M/o Comm & Industry,D/o Commerce,"Cadre Management of -Indian Trade Service, Indian Supply Service, Indian inspection service",,,
@@ -994,7 +994,8 @@ function csvToJson(csv) {
 //   console.log('-----------------------');
   // console.log(alldepartments);
 
-let currentQuestion = 1;
+
+
 let score = 0;
 let correctAnswer = '';
 let correctMinistry = '';
@@ -1004,6 +1005,20 @@ let attemptedNo = 0;
 let Ministries = {};
 let totalQuestions = 896;
 let checkboxStatus = false;
+let currentQuestion;
+let previousQuestion;
+
+function setCurrentQuestion(no){
+  localStorage.setItem('currentQuestion', no);
+}
+
+function getCurrentQuestion(){
+  let cq = localStorage.getItem('currentQuestion');
+  if(!cq) {cq = 1;}
+  return cq;
+}
+
+currentQuestion = getCurrentQuestion();
 
 function shuffle(array) {
   var tmp, current, top = array.length;
@@ -1035,9 +1050,14 @@ let randomQuesArray = randomQuestionArray(totalQuestions);
 
 function updateCurrentQuestion(){
     currentQuestion = document.getElementById("idStartQuesNo").value;
+    if(isNaN(currentQuestion)) {
+      return;
+    };
+
     console.log('updateCurrentQuestion:crrent questions :', currentQuestion);
     document.getElementsByClassName('randomCheckBox')[0].checked = false;
     checkboxStatus = false;
+    setCurrentQuestion(currentQuestion);
     displayQuestion();
 }
 
@@ -1070,6 +1090,12 @@ function updateRandomQuestion(){
     }
 }
 
+function showPreviousQuestion(){
+  if(isNaN(previousQuestion)) return;
+  currentQuestion = previousQuestion;
+  displayQuestion();
+}
+
 function displayQuestion() {
       const questionElement = document.getElementById("question");
      optionLabels = document.querySelectorAll("[id^='label']");
@@ -1087,6 +1113,7 @@ function displayQuestion() {
       document.getElementById("idmessage").textContent = "No question left"
       return;
     };
+
     console.log('currentQuestion :', currentQuestion);
     console.log('questions[currentQuestion] :', questions[currentQuestion]);
     questionElement.textContent = questions[currentQuestion].SNo +". "+ questions[currentQuestion].Item;
@@ -1196,7 +1223,9 @@ function showAnswer(){
         btn.innerHTML = "Next"
     } else {
         btn.innerHTML = "ShowAnswer";
+        previousQuestion = currentQuestion;
         currentQuestion++;
+        setCurrentQuestion(currentQuestion);
         displayQuestion();
     }
 
