@@ -7,7 +7,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 80vh;
-    font-size: 35px;
+    /* font-size: 35px; */
 }
 
 .quiz-container {
@@ -24,6 +24,7 @@ body {
     min-width: 80%;
     min-height: 15vh;
     text-align: left;
+    font-size: 35px;
 }
 button {
     width: 60%;
@@ -40,6 +41,7 @@ button#idBackBtn{
     min-width: 80%;
     min-height:200px;
     text-align: left;
+    font-size: 35px;
 }
 
 #options {

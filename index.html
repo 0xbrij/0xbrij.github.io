@@ -7,9 +7,13 @@
 <body>
     <div class="quiz-container">
         <h2>AOBR Quiz</h2>
+        <span>Total questions </span><span id="idSpanShowTotalQuestions"></span>
         <h5>Start from: 
             <input type="text" id="idStartQuesNo" value="0" oninput="onUpdateCurrentQuestion()" size="5"/>
             Random <input type="checkbox" id="idCheckRandom" class="randomCheckBox" onchange="onRandomQuestionCheckboxSelect()"/> 
+            ( btw <input type="text" id="idShuffleStartNo" value="0"  size="5"/> & 
+            <input type="text" id="idShuffleEndNo" value="0" size="5"/>
+            )
         </h5>
         <!-- <h4 id="idscore">Score</h4> -->
         <h4 id="idattempted">Attempted</h4>

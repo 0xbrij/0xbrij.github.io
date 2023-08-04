@@ -1011,6 +1011,7 @@ let previousQuestion;
 let isBackClicked = false;
 let optionLabels;
 let options;
+let randomQuesArray ;
 
 function setCurrentQuestion(no){
   localStorage.setItem('currentQuestion', no);
@@ -1018,11 +1019,12 @@ function setCurrentQuestion(no){
 
 function getCurrentQuestion(){
   let cq = localStorage.getItem('currentQuestion');
-  if(!cq) {cq = 1;}
+  if(isNaN(cq) || !cq || cq < 1 || cq > totalQuestions) {cq = 1;}
   return cq;
 }
 
 currentQuestion = getCurrentQuestion();
+document.getElementById("idSpanShowTotalQuestions").innerHTML = totalQuestions;
 
 function shuffle(array) {
   var tmp, current, top = array.length;
@@ -1040,8 +1042,23 @@ function randomQuestionArray(totalQuestions){
   return shuffle(a);
 }
 
-let randomQuesArray = randomQuestionArray(totalQuestions);
 
+
+function randomQuestionFromRange(){
+  let start = document.getElementById("idShuffleStartNo").value;
+  let end = document.getElementById("idShuffleEndNo").value;
+  if(isNaN(start) || start > totalQuestions || start < 1) start = 1;
+  if(isNaN(end) || end > totalQuestions || end < 1) end = totalQuestions;
+  let lengthOfArray = end-start +1;
+  console.log('length of Array :', lengthOfArray);
+  let tempArray = randomQuestionArray(lengthOfArray);
+  tempArray = tempArray.map( a => parseFloat(a) + parseFloat(start));
+  console.log('final temp array :', tempArray);
+  return tempArray;
+}
+// let randomQuesArray = randomQuestionArray(totalQuestions);
+
+// randomQuesArray  = randomQuestionFromRange();
 
 // On input of custom question in text box
 function onUpdateCurrentQuestion(){
@@ -1077,7 +1094,8 @@ function onRandomQuestionCheckboxSelect(){
   checkboxStatus = document.getElementsByClassName('randomCheckBox')[0].checked
   console.log('Random questions on - ', checkboxStatus);
   if(checkboxStatus === true) {
-    console.log('inside when checkbox is selected :',);
+    console.log('Random questions selected on');
+    randomQuesArray  = randomQuestionFromRange();
     updateCurrentQuestion();
     displayQuestion();
   }
@@ -1098,13 +1116,13 @@ function displayQuestion() {
      optionLabels = document.querySelectorAll("[id^='label']");
      options = document.querySelectorAll("[id^='option']");
 
-     if(!currentQuestion || currentQuestion < 0 || currentQuestion > totalQuestions) {
+     console.log('currentQuestion :', currentQuestion);
+     if(isNaN(currentQuestion) || !currentQuestion || currentQuestion < 0 || currentQuestion > totalQuestions) {
       console.log('Not a valid questions :');
       document.getElementById("idmessage").textContent = "No question left"
       return;
     };
 
-    console.log('currentQuestion :', currentQuestion);
     console.log('questions[currentQuestion] :', questions[currentQuestion]);
     questionElement.textContent = questions[currentQuestion].SNo +". "+ questions[currentQuestion].Item;
     attemptedNo+=1;
