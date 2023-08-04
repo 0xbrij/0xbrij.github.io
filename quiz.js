@@ -917,6 +917,7 @@ const csv = `SNo,Ministry,Department,Item,Remarks,,
 896,NITI Aayog,NITI Aayog,National Institute of Labour Economics Research and Development (NILERD),,,`;
 
 
+
 const departments = new Set();
 
 String.prototype.splitCSV = function(sep) {
@@ -1007,7 +1008,7 @@ let totalQuestions = 896;
 let checkboxStatus = false;
 let currentQuestion;
 let previousQuestion;
-let isBack = false;
+let isBackClicked = false;
 let optionLabels;
 let options;
 
@@ -1041,15 +1042,6 @@ function randomQuestionArray(totalQuestions){
 
 let randomQuesArray = randomQuestionArray(totalQuestions);
 
-// const rCb = document.getElementsByClassName('randomCheckBox')[0]
-// rCb.addEventListener('change', function(){
-//     checkboxStatus = this.checked
-//     console.log('Random questions on - ', checkboxStatus);
-//     if(checkboxStatus === true) {
-//       console.log('inside when checkbox is selected :',);
-//       displayQuestion();
-//     }
-// })
 
 // On input of custom question in text box
 function onUpdateCurrentQuestion(){
@@ -1065,9 +1057,6 @@ function onUpdateCurrentQuestion(){
     displayQuestion();
 }
 
-function showRandomQuestion(){
-    console.log('show random checked :', true);
-}
 
 function displayQuestion1() {
     const questionElement = document.getElementById("question");
@@ -1095,8 +1084,10 @@ function onRandomQuestionCheckboxSelect(){
 }
 
 function onClickBackQuestion(){
-  if(isNaN(previousQuestion) || (currentQuestion == previousQuestion)) return;
+  isBackClicked = true;
+  if(isNaN(previousQuestion) || previousQuestion <= 0 || (currentQuestion == previousQuestion)) return;
   currentQuestion = previousQuestion;
+  if(!checkboxStatus) --previousQuestion;
   --attemptedNo;
   displayQuestion();
   
@@ -1156,6 +1147,7 @@ function displayQuestion() {
     //     console.log('option quest :',options[i].value);
     //     console.log('optionLabel quest :',optionLabels[i].textContent);
     // }
+    if(isBackClicked) showAnswerDiv();
 }
 
 function randomQuestionNo(){
@@ -1210,22 +1202,29 @@ function hideAnswer(){
     let min = document.getElementById("idministry");
     min.style.display = "none";
 }
-function showAnswer(){
+
+function onQuestionBtnClick(){
+    isBackClicked = false;
     let btn = document.getElementById("idShowBtn");
     if(btn.innerHTML == "ShowAnswer"){
-        let ans = document.getElementById("idanswer");
-        ans.style.display = "block";
-        let min = document.getElementById("idministry");
-    min.style.display = "block";
-        let rem = document.getElementById("idremarks");
-        rem.style.display = "block";
-        btn.innerHTML = "Next"
+        showAnswerDiv();
     } else {
         btn.innerHTML = "ShowAnswer";
         updateCurrentQuestion();
         displayQuestion();
     }
 
+}
+
+function showAnswerDiv(){
+  let ans = document.getElementById("idanswer");
+  let btn = document.getElementById("idShowBtn");
+  ans.style.display = "block";
+  let min = document.getElementById("idministry");
+  min.style.display = "block";
+  let rem = document.getElementById("idremarks");
+  rem.style.display = "block";
+  btn.innerHTML = "Next"
 }
 
 function updateCurrentQuestion(){
@@ -1243,6 +1242,26 @@ function updateCurrentQuestion(){
 function showResult() {
     const quizContainer = document.getElementById("quiz-container");
     quizContainer.innerHTML = `<h2>Quiz Completed!</h2><p>Your score: ${score}/${questions.length}</p>`;
+}
+
+document.onkeydown = checkKey;
+
+function checkKey(e) {
+    e = e || window.event;
+    if (e.keyCode == '38') {
+        // up arrow
+    }
+    else if (e.keyCode == '40') {
+        // down arrow
+    }
+    else if (e.keyCode == '37') {
+       // left arrow
+       onClickBackQuestion();
+    }
+    else if (e.keyCode == '39' || e.keyCode == '32') {
+       // right arrow
+       onQuestionBtnClick();
+    }
 }
 
 displayQuestion();
