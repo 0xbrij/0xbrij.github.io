@@ -1007,6 +1007,9 @@ let totalQuestions = 896;
 let checkboxStatus = false;
 let currentQuestion;
 let previousQuestion;
+let isBack = false;
+let optionLabels;
+let options;
 
 function setCurrentQuestion(no){
   localStorage.setItem('currentQuestion', no);
@@ -1048,7 +1051,8 @@ let randomQuesArray = randomQuestionArray(totalQuestions);
 //     }
 // })
 
-function updateCurrentQuestion(){
+// On input of custom question in text box
+function onUpdateCurrentQuestion(){
     currentQuestion = document.getElementById("idStartQuesNo").value;
     if(isNaN(currentQuestion)) {
       return;
@@ -1078,35 +1082,30 @@ function displayQuestion1() {
     }
 }
 
-let optionLabels;
-let options;
 
-function updateRandomQuestion(){
+// selecting random question checkbox
+function onRandomQuestionCheckboxSelect(){
   checkboxStatus = document.getElementsByClassName('randomCheckBox')[0].checked
-    console.log('Random questions on - ', checkboxStatus);
-    if(checkboxStatus === true) {
-      console.log('inside when checkbox is selected :',);
-      displayQuestion();
-    }
+  console.log('Random questions on - ', checkboxStatus);
+  if(checkboxStatus === true) {
+    console.log('inside when checkbox is selected :',);
+    updateCurrentQuestion();
+    displayQuestion();
+  }
 }
 
-function showPreviousQuestion(){
-  if(isNaN(previousQuestion)) return;
+function onClickBackQuestion(){
+  if(isNaN(previousQuestion) || (currentQuestion == previousQuestion)) return;
   currentQuestion = previousQuestion;
+  --attemptedNo;
   displayQuestion();
+  
 }
 
 function displayQuestion() {
       const questionElement = document.getElementById("question");
      optionLabels = document.querySelectorAll("[id^='label']");
      options = document.querySelectorAll("[id^='option']");
-    checkboxStatus =  document.getElementsByClassName('randomCheckBox')[0].checked;
-     if(checkboxStatus){
-        console.log('generating random questions :', checkboxStatus);
-        // currentQuestion =  Math.floor(Math.random() * 900);
-        currentQuestion = randomQuesArray.pop() + 1;
-       
-     }
 
      if(!currentQuestion || currentQuestion < 0 || currentQuestion > totalQuestions) {
       console.log('Not a valid questions :');
@@ -1223,12 +1222,22 @@ function showAnswer(){
         btn.innerHTML = "Next"
     } else {
         btn.innerHTML = "ShowAnswer";
-        previousQuestion = currentQuestion;
-        currentQuestion++;
-        setCurrentQuestion(currentQuestion);
+        updateCurrentQuestion();
         displayQuestion();
     }
 
+}
+
+function updateCurrentQuestion(){
+  previousQuestion = currentQuestion;
+  checkboxStatus =  document.getElementsByClassName('randomCheckBox')[0].checked;
+  if(checkboxStatus){
+      console.log('generating random questions :', checkboxStatus);
+      currentQuestion = randomQuesArray.pop() + 1;
+  } else {
+    currentQuestion++;
+  }
+  setCurrentQuestion(currentQuestion);
 }
 
 function showResult() {

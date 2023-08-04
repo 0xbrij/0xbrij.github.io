@@ -8,8 +8,8 @@
     <div class="quiz-container">
         <h2>AOBR Quiz</h2>
         <h5>Start from: 
-            <input type="text" id="idStartQuesNo" value="0" oninput="updateCurrentQuestion()" size="5"/>
-            Random <input type="checkbox" id="idCheckRandom" class="randomCheckBox" onchange="updateRandomQuestion()"/> 
+            <input type="text" id="idStartQuesNo" value="0" oninput="onUpdateCurrentQuestion()" size="5"/>
+            Random <input type="checkbox" id="idCheckRandom" class="randomCheckBox" onchange="onRandomQuestionCheckboxSelect()"/> 
         </h5>
         <!-- <h4 id="idscore">Score</h4> -->
         <h4 id="idattempted">Attempted</h4>
@@ -17,7 +17,7 @@
         
         <!-- <button onclick="submitAnswer()">Submit</button> -->
         <button onclick="showAnswer()" id="idShowBtn" >ShowAnswer</button>
-        <button onclick="showPreviousQuestion()" id="idBackBtn" >Back</button>
+        <button onclick="onClickBackQuestion()" id="idBackBtn" >Back</button>
         <p>  </p>
         
         <div id="idanswer1">
