@@ -945,6 +945,8 @@ String.prototype.splitCSV = function(sep) {
     return entries;                                                      
   }
 
+  let ministryQuestionsDict = {};
+
 function csvToJson(csv) {
     // \n or \r\n depending on the EOL sequence
     const lines = csv.split('\n');
@@ -955,15 +957,23 @@ function csvToJson(csv) {
     // const headers = lines[0].split(delimeter);
     const headers = lines[0].splitCSV();
 
-    console.log('Headers :', headers);
     for (const line of lines) {
       const obj = {};
     //   const row = line.split(delimeter);
       const row = parse(line);
     //   console.log("==> - csvToJson - line:", line);
     //   console.log("==> - csvToJson - row:", row);
-  
-      for (let i = 0; i < headers.length; i++) {
+      
+    let tempMinQuestArray = ministryQuestionsDict[row[1]];
+    if(tempMinQuestArray == undefined) {
+      let arr1 = [];
+      arr1.push(row[0]);
+      ministryQuestionsDict[row[1]] = arr1;
+    } else {
+      tempMinQuestArray.push(row[0]);
+    }
+      
+    for (let i = 0; i < headers.length; i++) {
         const header = headers[i];
         obj[header] = row[i];
       }
@@ -976,6 +986,8 @@ function csvToJson(csv) {
     return result;
   }
   
+  console.log('Ministry dict array :', ministryQuestionsDict);
+
   function uniqueDepartments(departments){
     let outputArray = departments.filter(function (v, i, self) {
         return i == self.indexOf(v);
@@ -1140,7 +1152,7 @@ function displayQuestion() {
 
     ansRemark = questions[currentQuestion].Remarks;
     document.getElementById("idanswer").textContent = questions[currentQuestion].Department;
-    console.log('questions[currentQuestion].Ministry :',questions[currentQuestion].Ministry);
+    // console.log('questions[currentQuestion].Ministry :',questions[currentQuestion].Ministry);
     document.getElementById("idministry").textContent = questions[currentQuestion].Ministry;
 
     if(ansRemark)
@@ -1152,7 +1164,7 @@ function displayQuestion() {
     correctAnswer = questions[currentQuestion].Department;
 
     let randomOption = Math.floor(Math.random()*4);
-    console.log(' ansOptionNO:',randomOption);
+    // console.log(' ansOptionNO:',randomOption);
     // for (let i = 0; i < optionLabels.length; i++) {
     //     if(i == randomOption) {
     //         optionLabels[i].textContent = questions[currentQuestion].Department;
