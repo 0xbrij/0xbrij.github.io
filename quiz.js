@@ -1116,6 +1116,7 @@ function onRandomQuestionCheckboxSelect(){
 function onClickBackQuestion(){
   isBackClicked = true;
   if(isNaN(previousQuestion) || previousQuestion <= 0 || (currentQuestion == previousQuestion)) return;
+  randomQuesArray.push(currentQuestion-1);
   currentQuestion = previousQuestion;
   if(!checkboxStatus) --previousQuestion;
   --attemptedNo;
