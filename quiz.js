@@ -1024,6 +1024,12 @@ let isBackClicked = false;
 let optionLabels;
 let options;
 let randomQuesArray ;
+let impQuestIndex = 0;
+let impQuestArray = [];
+let ifShowImpQuestions = false;
+
+// set important question in localstorage;
+console.log('Questions marked as Important :', getImportantQuestArray());
 
 function setCurrentQuestion(no){
   localStorage.setItem('currentQuestion', no);
@@ -1124,19 +1130,62 @@ function onClickBackQuestion(){
   
 }
 
+function onClickImportantQuestion(){
+  if(isNaN(currentQuestion)) return;
+  let questionImpStatus = document.getElementsByClassName('selectImpCheckBox')[0].checked;
+  let tempImpQuestArray = getImportantQuestArray();
+
+  let index = tempImpQuestArray.indexOf(parseFloat(currentQuestion));
+  console.log('index:',index,'status:', questionImpStatus);
+  if(questionImpStatus){
+    if(index > -1) return;
+    setImportantQuestInArray(currentQuestion);
+  } else {
+    if(index >= 0){
+      tempImpQuestArray.splice(index, 1);
+      setImpQuestionArray(tempImpQuestArray);
+    }
+  }
+
+}
+
+function showImportantQuestions(){
+  ifShowImpQuestions = document.getElementsByClassName('showImpCheckBox')[0].checked;
+  if(ifShowImpQuestions){
+    updateCurrentQuestion();
+    displayQuestion();
+  }
+}
+
+function resetImportantQuestions(){
+  if(document.getElementsByClassName('resetImpCheckBox')[0].checked){
+    document.getElementsByClassName('showImpCheckBox')[0].checked = false;
+    impQuestArray = [];
+    impQuestIndex = 0;
+    setImpQuestionArray([]);
+  }
+}
+
 function displayQuestion() {
       const questionElement = document.getElementById("question");
+      document.getElementsByClassName('selectImpCheckBox')[0].checked = false;
      optionLabels = document.querySelectorAll("[id^='label']");
      options = document.querySelectorAll("[id^='option']");
 
-     console.log('currentQuestion :', currentQuestion);
      if(isNaN(currentQuestion) || !currentQuestion || currentQuestion < 0 || currentQuestion > totalQuestions) {
+       console.log('currentQuestion :', currentQuestion);
       console.log('Not a valid questions :');
       document.getElementById("idmessage").textContent = "No question left"
       return;
     };
 
-    console.log('questions[currentQuestion] :', questions[currentQuestion]);
+    document.getElementById("idmessage").textContent = "";
+    console.log('current question no :', questions[currentQuestion].SNo);
+    console.log('Subject    :', questions[currentQuestion].Item);
+    console.log('Department :', questions[currentQuestion].Department);
+    console.log('Ministry   :', questions[currentQuestion].Ministry);
+    console.log('------------------------------');
+
     questionElement.textContent = questions[currentQuestion].SNo +". "+ questions[currentQuestion].Item;
     attemptedNo+=1;
     document.getElementById("idattempted").textContent = "Attempted:"+attemptedNo;
@@ -1263,14 +1312,48 @@ function showAnswerDiv(){
 
 function updateCurrentQuestion(){
   previousQuestion = currentQuestion;
+  ifShowImpQuestions = document.getElementsByClassName('showImpCheckBox')[0].checked;
   checkboxStatus =  document.getElementsByClassName('randomCheckBox')[0].checked;
-  if(checkboxStatus){
-      console.log('generating random questions :', checkboxStatus);
+  if(ifShowImpQuestions) {
+    console.log('showing imp quest only :');
+    let tempArray = getImportantQuestArray();
+    impQuestArray = tempArray;
+    if(impQuestIndex >= impQuestArray.length) impQuestIndex = 0;
+    currentQuestion = impQuestArray[impQuestIndex]; 
+    impQuestIndex++;
+  }
+  else if(checkboxStatus){
+      console.log('showing random questions :', checkboxStatus);
       currentQuestion = randomQuesArray.pop() + 1;
   } else {
     currentQuestion++;
   }
+
   setCurrentQuestion(currentQuestion);
+}
+
+function setImportantQuestInArray(no){
+  let tempString = localStorage.getItem("impQuestions");
+  if(!tempString) return [parseFloat(no)];
+
+  let tempArray = JSON.parse(tempString);
+  tempArray.push(no);
+  localStorage.setItem("impQuestions", JSON.stringify(tempArray))
+  console.log('tempImpQuestArray :', tempArray);
+}
+
+function setImpQuestionArray(arr){
+  localStorage.setItem("impQuestions", JSON.stringify(arr));
+  console.log('tempImpQuestArray :', getImportantQuestArray());
+}
+
+function getImportantQuestArray(){
+  let tempString = localStorage.getItem("impQuestions");
+  if(!tempString) return [];
+
+  let tempArray = JSON.parse(tempString);
+  console.log('tempImpQuestArray :', tempArray);
+  return tempArray; 
 }
 
 function showResult() {
