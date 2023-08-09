@@ -1180,10 +1180,10 @@ function displayQuestion() {
     };
 
     document.getElementById("idmessage").textContent = "";
-    console.log('current question no :', questions[currentQuestion].SNo);
-    console.log('Subject    :', questions[currentQuestion].Item);
-    console.log('Department :', questions[currentQuestion].Department);
-    console.log('Ministry   :', questions[currentQuestion].Ministry);
+    console.log('current Qno :', questions[currentQuestion].SNo);
+    console.log('Subject     :', questions[currentQuestion].Item);
+    console.log('Department  :', questions[currentQuestion].Department);
+    console.log('Ministry    :', questions[currentQuestion].Ministry);
     console.log('------------------------------');
 
     questionElement.textContent = questions[currentQuestion].SNo +". "+ questions[currentQuestion].Item;
