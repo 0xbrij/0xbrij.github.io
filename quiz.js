@@ -1166,6 +1166,16 @@ function resetImportantQuestions(){
   }
 }
 
+function toggleMarkImportant(){
+  let starQStatus = document.getElementsByClassName('selectImpCheckBox')[0].checked;
+  if(starQStatus){
+    document.getElementsByClassName('selectImpCheckBox')[0].checked = false;
+  }else {
+    document.getElementsByClassName('selectImpCheckBox')[0].checked = true;
+  }
+  onClickImportantQuestion();
+}
+
 function displayQuestion() {
       const questionElement = document.getElementById("question");
       document.getElementsByClassName('selectImpCheckBox')[0].checked = false;
@@ -1375,10 +1385,13 @@ function checkKey(e) {
        // left arrow
        onClickBackQuestion();
     }
-    else if (e.keyCode == '39' || e.keyCode == '32') {
+    else if (e.keyCode == '39') {
        // right arrow
        onQuestionBtnClick();
-    }
+    } else if (e.keyCode == '32') {
+      // left arrow
+      toggleMarkImportant();
+   }
 }
 
 displayQuestion();

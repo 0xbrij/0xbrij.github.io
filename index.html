@@ -7,13 +7,17 @@
 <body>
     <div class="quiz-container">
         <h2>AOBR Quiz</h2>
+        
         <span>Total questions </span><span id="idSpanShowTotalQuestions"></span>
+        
         <h5>Start from: 
             <input type="text" id="idStartQuesNo" value="0" oninput="onUpdateCurrentQuestion()" size="5"/>
             Random <input type="checkbox" id="idCheckRandom" class="randomCheckBox" onchange="onRandomQuestionCheckboxSelect()"/> 
+
             ( btw <input type="text" id="idShuffleStartNo" value="0"  size="5"/> & 
             <input type="text" id="idShuffleEndNo" value="0" size="5"/>
             )
+
             (&nbsp; Show&#9733 <input type="checkbox" id="idShowImportant" class="showImpCheckBox" onchange="showImportantQuestions()"/>
              Reset&#9733 <input type="checkbox" id="idResetImportant" class="resetImpCheckBox" onchange="resetImportantQuestions()"/>)
 
@@ -30,6 +34,7 @@
         <!-- <button onclick="submitAnswer()">Submit</button> -->
         <button onclick="onQuestionBtnClick()" id="idShowBtn" >ShowAnswer</button>
         <button onclick="onClickBackQuestion()" id="idBackBtn" >Back</button>
+        
         <p>  </p>
         
         <div id="idanswer1">
@@ -38,7 +43,9 @@
             <div id="idministry"></div>
             <div id="idremarks"></div>
         </div>
+        
         <div id="idmessage"></div>
+        <span> Shortcuts: space-> mark &#9733, right arrow -> next, left-> back </span>
     </div>
 
     <script src="quiz.js"></script>
