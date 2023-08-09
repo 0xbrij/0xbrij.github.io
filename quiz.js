@@ -1122,7 +1122,7 @@ function onRandomQuestionCheckboxSelect(){
 function onClickBackQuestion(){
   isBackClicked = true;
   if(isNaN(previousQuestion) || previousQuestion <= 0 || (currentQuestion == previousQuestion)) return;
-  randomQuesArray.push(currentQuestion-1);
+  randomQuesArray.push(parseFloat(currentQuestion-1));
   currentQuestion = previousQuestion;
   if(!checkboxStatus) --previousQuestion;
   --attemptedNo;
@@ -1337,14 +1337,14 @@ function setImportantQuestInArray(no){
   if(!tempString) return [parseFloat(no)];
 
   let tempArray = JSON.parse(tempString);
-  tempArray.push(no);
+  tempArray.push(parseFloat(no));
   localStorage.setItem("impQuestions", JSON.stringify(tempArray))
   console.log('tempImpQuestArray :', tempArray);
 }
 
 function setImpQuestionArray(arr){
   localStorage.setItem("impQuestions", JSON.stringify(arr));
-  console.log('tempImpQuestArray :', getImportantQuestArray());
+  console.log('reset array is :', getImportantQuestArray());
 }
 
 function getImportantQuestArray(){
@@ -1352,7 +1352,7 @@ function getImportantQuestArray(){
   if(!tempString) return [];
 
   let tempArray = JSON.parse(tempString);
-  console.log('tempImpQuestArray :', tempArray);
+  console.log('impQuestArray :', tempArray);
   return tempArray; 
 }
 
