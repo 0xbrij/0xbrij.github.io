@@ -1122,7 +1122,7 @@ function onRandomQuestionCheckboxSelect(){
 function onClickBackQuestion(){
   isBackClicked = true;
   if(isNaN(previousQuestion) || previousQuestion <= 0 || (currentQuestion == previousQuestion)) return;
-  randomQuesArray.push(parseFloat(currentQuestion-1));
+  if(randomQuesArray) randomQuesArray.push(parseFloat(currentQuestion-1));
   currentQuestion = previousQuestion;
   if(!checkboxStatus) --previousQuestion;
   --attemptedNo;
@@ -1178,7 +1178,7 @@ function toggleMarkImportant(){
 
 function displayQuestion() {
       const questionElement = document.getElementById("question");
-      document.getElementsByClassName('selectImpCheckBox')[0].checked = false;
+      
      optionLabels = document.querySelectorAll("[id^='label']");
      options = document.querySelectorAll("[id^='option']");
 
@@ -1188,6 +1188,14 @@ function displayQuestion() {
       document.getElementById("idmessage").textContent = "No question left"
       return;
     };
+
+    if(checkImpQuestInArray(currentQuestion)){
+      document.getElementsByClassName('selectImpCheckBox')[0].checked = true;
+      document.getElementById("question").classList.add('red-font');
+    } else {
+      document.getElementsByClassName('selectImpCheckBox')[0].checked = false;
+      document.getElementById("question").classList.remove('red-font');
+    }
 
     document.getElementById("idmessage").textContent = "";
     console.log('current Qno :', questions[currentQuestion].SNo);
@@ -1341,6 +1349,18 @@ function updateCurrentQuestion(){
 
   setCurrentQuestion(currentQuestion);
 }
+
+function checkImpQuestInArray(no){
+  let tempString = localStorage.getItem("impQuestions");
+  if(!tempString) return false;
+
+  let tempArray = JSON.parse(tempString);
+  let index = tempArray.indexOf(parseFloat(no));
+
+  if(index > -1) return true;
+  else return false;
+}
+
 
 function setImportantQuestInArray(no){
   let tempString = localStorage.getItem("impQuestions");

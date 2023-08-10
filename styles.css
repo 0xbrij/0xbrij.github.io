@@ -26,6 +26,10 @@ body {
     text-align: left;
     font-size: 35px;
 }
+.red-font {
+    color: #CE2501;
+}
+
 button {
     width: 60%;
     height: 70px;
