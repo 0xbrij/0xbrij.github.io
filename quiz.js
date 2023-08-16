@@ -500,6 +500,7 @@ function showResult() {
 document.onkeydown = checkKey;
 
 function checkKey(e) {
+    // console.log('key pressed :', e.keyCode);
     e = e || window.event;
     if (e.keyCode == '38') {
         // up arrow
@@ -511,7 +512,7 @@ function checkKey(e) {
        // left arrow
        onClickBackQuestion();
     }
-    else if (e.keyCode == '39') {
+    else if (e.keyCode == '39' || e.keyCode == '17') {
        // right arrow
        onQuestionBtnClick();
     } else if (e.keyCode == '32') {
