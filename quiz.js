@@ -1122,12 +1122,18 @@ function onRandomQuestionCheckboxSelect(){
 function onClickBackQuestion(){
   isBackClicked = true;
   if(isNaN(previousQuestion) || previousQuestion <= 0 || (currentQuestion == previousQuestion)) return;
-  if(randomQuesArray) randomQuesArray.push(parseFloat(currentQuestion-1));
+  ifShowImpQuestions = document.getElementsByClassName('showImpCheckBox')[0].checked;
+  if(ifShowImpQuestions) {
+    --impQuestIndex;
+  }
+  else {
+    console.log('FIX IT - pushing to random array :');
+    if(randomQuesArray) randomQuesArray.push(parseFloat(currentQuestion-1));
+  }
   currentQuestion = previousQuestion;
   if(!checkboxStatus) --previousQuestion;
   --attemptedNo;
   displayQuestion();
-  
 }
 
 function onClickImportantQuestion(){
