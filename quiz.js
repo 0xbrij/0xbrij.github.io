@@ -16,8 +16,7 @@ const questions1 = [
     },
 ];
 
-
-
+let totalQuestions = 900;
 const departments = new Set();
 
 String.prototype.splitCSV = function(sep) {
@@ -50,6 +49,8 @@ String.prototype.splitCSV = function(sep) {
 function csvToJson(csv) {
     // \n or \r\n depending on the EOL sequence
     const lines = csv.split('\n');
+    totalQuestions = lines.length - 1;
+    console.log('total questions :', totalQuestions);
     const delimeter = ',';
   
     const result = [];
@@ -86,7 +87,7 @@ function csvToJson(csv) {
     return result;
   }
   
-  console.log('Ministry dict array :', ministryQuestionsDict);
+  console.log('All Questions DB :', ministryQuestionsDict);
 
   function uniqueDepartments(departments){
     let outputArray = departments.filter(function (v, i, self) {
@@ -116,7 +117,6 @@ let selectedAnswer = '';
 let ansRemark = '';
 let attemptedNo = 0;
 let Ministries = {};
-let totalQuestions = 896;
 let checkboxStatus = false;
 let currentQuestion;
 let previousQuestion;
@@ -512,7 +512,7 @@ function checkKey(e) {
        // left arrow
        onClickBackQuestion();
     }
-    else if (e.keyCode == '39' || e.keyCode == '17') {
+    else if (e.keyCode == '39' || e.keyCode == '17') { // 17 - fn key of mac
        // right arrow
        onQuestionBtnClick();
     } else if (e.keyCode == '32') {
