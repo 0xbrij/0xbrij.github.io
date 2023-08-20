@@ -129,7 +129,7 @@ let impQuestArray = [];
 let ifShowImpQuestions = false;
 
 // set important question in localstorage;
-console.log('Questions marked as Important :', getImportantQuestArray());
+// console.log('Questions marked as Important :', getImportantQuestArray());
 
 function setCurrentQuestion(no){
   localStorage.setItem('currentQuestion', no);
@@ -439,11 +439,12 @@ function updateCurrentQuestion(){
   ifShowImpQuestions = document.getElementsByClassName('showImpCheckBox')[0].checked;
   checkboxStatus =  document.getElementsByClassName('randomCheckBox')[0].checked;
   if(ifShowImpQuestions) {
-    console.log('showing imp quest only :');
     let tempArray = getImportantQuestArray();
     impQuestArray = tempArray;
     if(impQuestIndex >= impQuestArray.length) impQuestIndex = 0;
     currentQuestion = impQuestArray[impQuestIndex]; 
+    console.log('Showing imp Questions no : ', impQuestIndex + 1, " of ", impQuestArray.length);
+    console.log('Remaining imp Questions  :', impQuestArray.length - impQuestIndex -1);
     impQuestIndex++;
   }
   else if(checkboxStatus){
@@ -475,7 +476,7 @@ function setImportantQuestInArray(no){
   let tempArray = JSON.parse(tempString);
   tempArray.push(parseFloat(no));
   localStorage.setItem("impQuestions", JSON.stringify(tempArray))
-  console.log('tempImpQuestArray :', tempArray);
+  console.log('New Imp Quest Array :', tempArray);
 }
 
 function setImpQuestionArray(arr){
@@ -488,7 +489,7 @@ function getImportantQuestArray(){
   if(!tempString) return [];
 
   let tempArray = JSON.parse(tempString);
-  console.log('impQuestArray :', tempArray);
+  // console.log('impQuestArray :', tempArray);
   return tempArray; 
 }
 
