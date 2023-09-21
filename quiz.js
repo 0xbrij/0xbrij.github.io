@@ -48,7 +48,7 @@ String.prototype.splitCSV = function(sep) {
 
 function csvToJson(csv) {
     // \n or \r\n depending on the EOL sequence
-    const lines = csv.split('\n');
+    const lines = csv.split(',\n');
     totalQuestions = lines.length - 1;
     console.log('total questions :', totalQuestions);
     const delimeter = ',';

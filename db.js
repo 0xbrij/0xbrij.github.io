@@ -1,4 +1,4 @@
-// please remove lines from rows, all rows should start with numbers
+// please remove new lines from rows, all rows should start with numbers
 
 const csv = `SNo,Ministry,Department,Item,Remarks,,
 1,Cabinet Secretariat,Cabinet Secretariat,Secretarial Assistance to Cabinet/ Cabinet Committees,,,
