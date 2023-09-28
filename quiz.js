@@ -305,12 +305,15 @@ function displayQuestion() {
 
     document.getElementById("idmessage").textContent = "";
     console.log('current Qno :', questions[currentQuestion].SNo);
-    console.log('Subject     :', questions[currentQuestion].Item);
+    console.log('Subject     :', JSON.stringify(questions[currentQuestion].Item));
     console.log('Department  :', questions[currentQuestion].Department);
     console.log('Ministry    :', questions[currentQuestion].Ministry);
     console.log('------------------------------');
 
-    questionElement.textContent = questions[currentQuestion].SNo +". "+ questions[currentQuestion].Item;
+    let questText = questions[currentQuestion].SNo +". "+ questions[currentQuestion].Item;
+    questText = questText.replace(/\r/g, '').replace(/\n/g, '</br>');
+    // console.log('text with br tag :', JSON.stringify(questText));
+    questionElement.innerHTML  = questText ;
     attemptedNo+=1;
     document.getElementById("idattempted").textContent = "Attempted:"+attemptedNo;
     if(checkboxStatus) {
