@@ -1,21 +1,21 @@
 body {
-    margin: 0;
-    padding: 0;
+    margin: 20px;
     font-family: Arial, sans-serif;
     background-color: #484040;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    height: 90vh;
     /* font-size: 35px; */
 }
 
 .quiz-container {
     background-color: #5b5454;
     color: #c9b8b8;
-    padding: 15px;
+    padding: 10px;
     border-radius: 10px;
     width: 90%;
+    max-width: 1000px;
     min-height: 90%;
     text-align: left;
 }
@@ -27,7 +27,7 @@ body {
     font-size: 35px;
 }
 .red-font {
-    color: #CE2501;
+    color: #e7846d;
 }
 
 button {
