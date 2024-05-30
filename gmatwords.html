@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flash Cards</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f8ff;
+      font-family: Arial, sans-serif;
+    }
+    #flash-card {
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      padding: 20px;
+      width: 500px;
+      min-height: 600px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      text-align: left;
+      position: relative;
+    }
+    #controls {
+      position: absolute;
+    bottom: 0;
+    width: 100%; /* Optional, adjust as needed */
+      margin-top: 20px;
+    }
+    #controls button {
+      margin: 5px;
+      width: 200px;
+      height: 50px;
+    }
+    #filters {
+      margin-bottom: 20px;
+    }
+    .line-gap {
+      margin-bottom: 10px;
+    }
+    .example-list {
+      margin-top: 0;
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="flash-card">
+    <div id="filters">
+      <label>
+        <input type="checkbox" id="randomize"> Randomize Words
+      </label>
+    </div>
+    <h2 id="word"></h2>
+    <div class="line-gap">
+      <strong>Meaning & Trick:</strong> <span id="meaning-trick"></span>
+    </div>
+    <div class="line-gap">
+      <strong>Synonyms:</strong> <span id="synonyms"></span>
+    </div>
+    <div class="line-gap">
+      <strong>Examples:</strong> 
+      <ul id="examples" class="example-list"></ul>
+    </div>
+    <div id="controls">
+      <button onclick="reveal()">Reveal</button>
+      <button onclick="nextWord()">Skip</button>
+    </div>
+  </div>
+
+  <script src="words.js"></script>
+  <script>
+    let words = [];
+    let currentWordIndex = 0;
+    let revealStep = 0;
+    let randomize = false;
+
+    // Assign the imported data to the words variable
+    words = Object.keys(wordsData).map(key => ({ word: key, ...wordsData[key] }));
+    displayWord();
+
+    document.getElementById('randomize').addEventListener('change', function() {
+      randomize = this.checked;
+      if (randomize) {
+        words = shuffle(words);
+      } else {
+        words.sort((a, b) => a.word.localeCompare(b.word));
+      }
+      currentWordIndex = 0;
+      displayWord();
+    });
+
+    function displayWord() {
+      const wordData = words[currentWordIndex];
+      document.getElementById('word').textContent = wordData.word;
+      document.getElementById('meaning-trick').textContent = '';
+      document.getElementById('synonyms').textContent = '';
+      document.getElementById('examples').innerHTML = '';
+      revealStep = 0;
+    }
+
+    function reveal() {
+      const wordData = words[currentWordIndex];
+      switch (revealStep) {
+        case 0:
+          document.getElementById('meaning-trick').textContent = `Meaning: ${wordData.meaning} | Trick: ${wordData.trick}`;
+          break;
+        case 1:
+          document.getElementById('synonyms').textContent = wordData.synonyms.join(', ');
+          break;
+        case 2:
+          const examplesList = document.getElementById('examples');
+          examplesList.innerHTML = '';
+          wordData.examples.forEach(example => {
+            const li = document.createElement('li');
+            li.textContent = example;
+            examplesList.appendChild(li);
+          });
+          break;
+        case 3:
+          nextWord();
+          return;
+      }
+      revealStep = (revealStep + 1) % 4;
+    }
+
+    function nextWord() {
+      currentWordIndex = (currentWordIndex + 1) % words.length;
+      displayWord();
+    }
+
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+  </script>
+</body>
+</html>
