@@ -56,7 +56,10 @@
     </div>
     <h2 id="word"></h2>
     <div class="line-gap">
-      <strong>Meaning & Trick:</strong> <span id="meaning-trick"></span>
+      <strong>Meaning </strong> <span id="meaning"></span>
+    </div>
+    <div class="line-gap">
+      <strong>Trick:</strong> <span id="trick"></span>
     </div>
     <div class="line-gap">
       <strong>Synonyms:</strong> <span id="synonyms"></span>
@@ -108,10 +111,10 @@
       const wordData = words[currentWordIndex];
       switch (revealStep) {
         case 0:
-          document.getElementById('meaning').textContent = ${wordData.meaning};
+          document.getElementById('meaning').textContent = wordData.meaning;
           break;
         case 1:
-          document.getElementById('trick').textContent = ${wordData.trick};
+          document.getElementById('trick').textContent = wordData.trick;
           break;
         case 2:
           document.getElementById('synonyms').textContent = wordData.synonyms.join(', ');
