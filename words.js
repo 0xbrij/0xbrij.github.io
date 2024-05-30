@@ -1,122 +1,122 @@
 const wordsData = {
-  "endemic": {
-    "meaning": "Common or prevalent in a particular geographic area or among a specific group of people.",
-    "trick": "Endemic sounds like 'end' + 'demic', so think of something that 'ends' in a specific area.",
-    "synonyms": ["native", "local", "indigenous", "regional"],
+    "endemic": {
+    "meaning": "Native or restricted to a certain place or region.",
+    "trick": "Endemic sounds like 'in-demic', indicating something specific to a particular demographic.",
+    "synonyms": ["indigenous", "native", "local"],
     "examples": [
-      "Malaria is endemic to tropical regions.",
-      "The bird species is endemic to the island.",
-      "Corruption seemed endemic to the government.",
-      "Some diseases are endemic to certain parts of the world.",
-      "Poverty remains endemic in many rural areas."
+      "Malaria is endemic to tropical regions where the climate is suitable for mosquito breeding.",
+      "The endangered species is endemic to this particular island and cannot be found anywhere else.",
+      "Endemic corruption in the government has hindered the country's development.",
+      "The plant species is endemic to the rainforest and cannot survive in other environments.",
+      "The disease is endemic in certain parts of Africa, making it challenging to eradicate."
     ]
   },
   "endeavour": {
-    "meaning": "An attempt to achieve a goal.",
-    "trick": "Endeavour has 'endea' which sounds like 'idea' - to try out an idea.",
-    "synonyms": ["attempt", "effort", "try", "undertaking"],
+    "meaning": "To try hard to achieve something.",
+    "trick": "Endeavour sounds like 'end over', suggesting putting a lot of effort into reaching a goal.",
+    "synonyms": ["attempt", "strive", "undertake"],
     "examples": [
-      "He made an endeavour to finish the project on time.",
-      "Their endeavour to climb the mountain was successful.",
-      "She is always willing to endeavour to help others.",
-      "Scientific endeavour has led to numerous discoveries.",
-      "The team's endeavour paid off with a victory."
+      "She endeavored to learn a new language by practicing every day.",
+      "Despite facing many obstacles, he endeavored to reach his goals.",
+      "The company endeavored to provide better customer service.",
+      "They endeavored to find a solution to the problem before it escalated.",
+      "Endeavoring to find a cure, scientists conducted numerous experiments."
     ]
   },
   "endive": {
-    "meaning": "A leafy plant used in salads.",
-    "trick": "Endive sounds like 'end dive' - think of diving into a salad at the end.",
-    "synonyms": ["chicory", "salad green", "leafy vegetable"],
+    "meaning": "A leafy vegetable with a slightly bitter taste.",
+    "trick": "Endive sounds like 'endive', similar to how it's pronounced, aiding in easy recall.",
+    "synonyms": ["chicory", "escarole"],
     "examples": [
-      "She added some fresh endive to the salad.",
-      "Endive has a slightly bitter taste.",
-      "The restaurant's signature dish includes endive.",
-      "He prefers endive over other leafy greens.",
-      "You can find endive at most grocery stores."
+      "She prepared a salad with fresh endive leaves and vinaigrette dressing.",
+      "The dish featured roasted beets served with sliced endive.",
+      "Endive is often used in gourmet salads for its unique flavor.",
+      "He prefers to eat endive raw rather than cooked.",
+      "The recipe called for endive as one of the main ingredients."
     ]
   },
   "endorse": {
-    "meaning": "Declare one's public approval or support of.",
-    "trick": "Endorse sounds like 'in doors' - when you endorse something, you bring it indoors.",
-    "synonyms": ["support", "approve", "back", "champion"],
+    "meaning": "To declare one's public approval or support of something.",
+    "trick": "Endorse sounds like 'in doors', implying public support or approval.",
+    "synonyms": ["approve", "support", "back"],
     "examples": [
-      "The celebrity endorsed the new product.",
-      "I cannot endorse this policy.",
-      "She endorsed his application for the position.",
-      "Many experts endorse this treatment.",
-      "The committee endorsed the proposed changes."
+      "The celebrity endorsed the new perfume, leading to a surge in sales.",
+      "The organization endorsed the candidate for their commitment to environmental issues.",
+      "The company endorsed the charity event by donating a significant sum of money.",
+      "He asked his friends to endorse his skills on his LinkedIn profile.",
+      "The mayor publicly endorsed the plan to revitalize the city center."
     ]
   },
   "endue": {
-    "meaning": "Provide with a quality or ability.",
-    "trick": "Endue sounds like 'in due' - you provide qualities or abilities in due time.",
-    "synonyms": ["endow", "bestow", "grant", "furnish"],
+    "meaning": "To provide with a quality or ability.",
+    "trick": "Endue sounds like 'en + due', suggesting giving something its due quality or ability.",
+    "synonyms": ["endow", "grant", "bestow"],
     "examples": [
-      "The teacher endued the students with confidence.",
-      "Nature endued him with great strength.",
-      "The artist was endued with creativity.",
-      "They were endued with wisdom beyond their years.",
-      "She was endued with a sense of purpose."
+      "The scholarship will endue her with the opportunity to pursue higher education.",
+      "His parents endued him with a strong sense of responsibility from a young age.",
+      "Education endues individuals with knowledge and skills necessary for success.",
+      "The mentorship program aims to endue participants with leadership qualities.",
+      "Their generosity endues the community with resources for growth and development."
     ]
   },
   "enervate": {
-    "meaning": "Cause someone to feel drained of energy or vitality.",
-    "trick": "Enervate sounds like 'energy' + 'evaporate' - to drain energy.",
-    "synonyms": ["weaken", "exhaust", "debilitate", "sap"],
+    "meaning": "To weaken or drain of energy.",
+    "trick": "Enervate sounds like 'energy-vacate', suggesting draining energy.",
+    "synonyms": ["weaken", "debilitate", "exhaust"],
     "examples": [
-      "The hot sun enervated the runners.",
-      "A long day of work can enervate anyone.",
-      "The illness enervated her completely.",
-      "He felt enervated after the marathon.",
-      "Stress can enervate both body and mind."
+      "The intense heat enervated the hikers, causing fatigue and dehydration.",
+      "The prolonged illness left him enervated, unable to perform daily tasks.",
+      "The constant stress of work enervated her both physically and mentally.",
+      "Lack of sleep can enervate the body and impair cognitive function.",
+      "The long hours of studying enervated the students, leading to decreased productivity."
     ]
   },
   "engender": {
-    "meaning": "Cause or give rise to.",
-    "trick": "Engender sounds like 'generate' - to cause or generate something.",
-    "synonyms": ["produce", "create", "cause", "provoke"],
+    "meaning": "To cause or give rise to a feeling, situation, or condition.",
+    "trick": "Engender sounds like 'generate', implying creating or causing something.",
+    "synonyms": ["cause", "create", "produce"],
     "examples": [
-      "The policy engendered controversy.",
-      "His speech engendered optimism among the crowd.",
-      "Their actions engendered a lot of hatred.",
-      "The new project engendered excitement.",
-      "Conflict often engenders violence."
+      "The divisive rhetoric engendered a sense of fear and distrust among the population.",
+      "The economic policies are expected to engender widespread prosperity.",
+      "His apology engendered forgiveness and reconciliation among family members.",
+      "The project aims to engender a sense of community among residents.",
+      "Their actions only served to engender further conflict and misunderstanding."
     ]
   },
   "enigma": {
-    "meaning": "A person or thing that is mysterious or difficult to understand.",
-    "trick": "Enigma sounds like 'a nigma' (a mystery) - something puzzling.",
-    "synonyms": ["mystery", "puzzle", "riddle", "conundrum"],
+    "meaning": "A person or thing that is mysterious, puzzling, or difficult to understand.",
+    "trick": "Enigma sounds like 'inigma mystery', indicating something mysterious and difficult to comprehend.",
+    "synonyms": ["mystery", "puzzle", "riddle"],
     "examples": [
-      "The Mona Lisa's smile is an enigma.",
-      "He remained an enigma to his friends.",
-      "The cause of the disease is still an enigma.",
-      "The ancient artifact was an enigma.",
-      "She was an enigma, always full of surprises."
+      "The disappearance of the ancient artifact remains an enigma to historians.",
+      "Her personality was an enigma, with layers of complexity that intrigued those around her.",
+      "The true identity of the anonymous donor is an enigma to the charity organization.",
+      "The strange lights in the sky were an enigma to the villagers.",
+      "The coded message presented an enigma to the codebreakers."
     ]
   },
   "enjoin": {
-    "meaning": "Instruct or urge someone to do something.",
-    "trick": "Enjoin sounds like 'en' + 'join' - to join an effort or action.",
-    "synonyms": ["urge", "command", "direct", "instruct"],
+    "meaning": "To instruct or urge someone to do something.",
+    "trick": "Enjoin sounds like 'in join', suggesting joining in an action or instruction.",
+    "synonyms": ["urge", "command", "direct"],
     "examples": [
-      "The judge enjoined them to settle the case.",
-      "He enjoined his followers to remain peaceful.",
-      "The teacher enjoined the students to study hard.",
-      "She was enjoined by her doctor to rest.",
-      "The law enjoins companies to provide accurate information."
+      "The doctor enjoined her patient to rest and take the prescribed medication.",
+      "It is the duty of parents to enjoin good behavior in their children.",
+      "The judge enjoined the defendant to refrain from contacting the plaintiff.",
+      "The teacher enjoined the students to complete their assignments on time.",
+      "The coach enjoined the team to give their best effort in the upcoming match."
     ]
   },
   "ennui": {
     "meaning": "A feeling of listlessness and dissatisfaction arising from a lack of occupation or excitement.",
-    "trick": "Ennui sounds like 'on we' - when you're bored, time seems to drag on.",
-    "synonyms": ["boredom", "tedium", "listlessness", "weariness"],
+    "trick": "Ennui sounds like 'anew', but the feeling is quite the opposite; it's about boredom and dissatisfaction.",
+    "synonyms": ["boredom", "weariness", "tedium"],
     "examples": [
-      "He suffered from ennui during the long winter.",
-      "The lecture filled her with ennui.",
-      "The monotonous routine brought on a sense of ennui.",
-      "She experienced ennui despite her busy schedule.",
-      "The movie was so dull it caused ennui."
+      "The long summer afternoons often left him with a sense of ennui.",
+      "She sought to alleviate her ennui by taking up new hobbies.",
+      "The ennui of suburban life led him to contemplate moving to the city.",
+      "The repetitive nature of the job filled him with ennui.",
+      "He tried to shake off his ennui by immersing himself in books and music."
     ]
   },
   "enroute": {
