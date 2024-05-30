@@ -97,7 +97,8 @@
     function displayWord() {
       const wordData = words[currentWordIndex];
       document.getElementById('word').textContent = wordData.word;
-      document.getElementById('meaning-trick').textContent = '';
+      document.getElementById('meaning').textContent = '';
+      document.getElementById('trick').textContent = '';
       document.getElementById('synonyms').textContent = '';
       document.getElementById('examples').innerHTML = '';
       revealStep = 0;
@@ -107,12 +108,15 @@
       const wordData = words[currentWordIndex];
       switch (revealStep) {
         case 0:
-          document.getElementById('meaning-trick').textContent = `Meaning: ${wordData.meaning} | Trick: ${wordData.trick}`;
+          document.getElementById('meaning').textContent = ${wordData.meaning};
           break;
         case 1:
-          document.getElementById('synonyms').textContent = wordData.synonyms.join(', ');
+          document.getElementById('trick').textContent = ${wordData.trick};
           break;
         case 2:
+          document.getElementById('synonyms').textContent = wordData.synonyms.join(', ');
+          break;
+        case 3:
           const examplesList = document.getElementById('examples');
           examplesList.innerHTML = '';
           wordData.examples.forEach(example => {
@@ -121,11 +125,11 @@
             examplesList.appendChild(li);
           });
           break;
-        case 3:
+        case 4:
           nextWord();
           return;
       }
-      revealStep = (revealStep + 1) % 4;
+      revealStep = (revealStep + 1) % 5;
     }
 
     function nextWord() {
