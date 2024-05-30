@@ -20,3 +20,58 @@
     
 </body>
 </html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Links</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .link {
+            display: block;
+            width: 200px;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        .link:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            .link {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="./gmatwords.html" class="link">Gmat words practice</a>
+        <a href="./ldce.html" class="link">ldce</a>
+    </div>
+</body>
+</html>
