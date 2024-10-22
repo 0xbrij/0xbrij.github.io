@@ -1,0 +1,132 @@
+/* Increased text size and grayish background */
+body {
+  font-size: 18px;
+  background-color: #f0f0f0; /* Light gray background */
+}
+
+#quizContainer {
+  background-color: #ffffff; /* White background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+#pastPerformanceContainer {
+  background-color: #ffffff; /* White background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+#question {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+#pastPerformanceTable {
+  width: 100%; /* Full width */
+  border-collapse: collapse; /* Remove space between cells */
+  margin-top: 20px; /* Space above the table */
+}
+
+#pastPerformanceTable th,
+#pastPerformanceTable td {
+  padding: 8px; /* Reduce padding for a more compact appearance */
+  text-align: left; /* Align text to the left */
+  border-bottom: 1px solid #ddd; /* Light border for rows */
+  font-size: 14px; /* Smaller font size */
+}
+
+#pastPerformanceTable th {
+  background-color: #4caf50; /* Header background color */
+  color: white; /* Header text color */
+}
+
+#pastPerformanceTable tr:nth-child(even) {
+  background-color: #f9f9f9; /* Alternating row colors */
+}
+
+#pastPerformanceTable tr:hover {
+  background-color: #f1f1f1; /* Hover effect for rows */
+}
+
+.container {
+  width: 90%;
+  max-width: 600px;
+  margin: 50px auto;
+  text-align: center;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+input[type="text"] {
+  padding: 10px;
+  font-size: 18px;
+  width: 100px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+#feedback {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #004d40;
+}
+
+button {
+  background-color: #4caf50; /* Green background */
+  border: none; /* Remove border */
+  color: white; /* White text */
+  padding: 5px 20px; /* Padding */
+  text-align: center; /* Center text */
+  text-decoration: none; /* No underline */
+  display: inline-block; /* Display inline */
+  font-size: 16px; /* Font size */
+  margin: 4px 2px; /* Margin */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s, transform 0.3s; /* Transition effect */
+}
+
+button:hover {
+  background-color: #45a049; /* Darker green on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+select {
+  padding: 10px; /* Padding */
+  margin: 10px 0; /* Margins for spacing */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 16px; /* Font size */
+  background-color: #f9f9f9; /* Light background color */
+  transition: border-color 0.3s; /* Smooth border color transition */
+}
+
+select:focus {
+  border-color: #4caf50; /* Change border color on focus */
+  outline: none; /* Remove outline */
+}
+
+label {
+  font-size: 18px; /* Larger font size */
+  color: #333; /* Dark text color */
+  margin-bottom: 5px; /* Space below labels */
+}
+
+input {
+  width: 100px;
+}
+h1 {
+  font-size: 24px; /* Larger font size */
+  color: #4caf50; /* Green color for the heading */
+  text-align: center; /* Center the heading */
+  margin-bottom: 20px; /* Space below heading */
+  font-weight: bold; /* Bold text */
+}

@@ -66,6 +66,12 @@
 </head>
 <body>
   <div id="flash-card">
+    <div>
+      <div>
+        <span>Total Words: </span> <span id="currentWordIndex"></span> of <span id="totalWordsCount"></span>
+        <!-- <span> Words: </span> <span id="totalWordsCount"></span> -->
+      </div>
+    </div>
     <div id="filters">
       <label>
         <input type="checkbox" id="randomize"> Randomize Words
@@ -98,9 +104,23 @@
     let currentWordIndex = 0;
     let revealStep = 0;
     let randomize = false;
+    let totalWordsCount = 0;
+    let totalWordsInAList = 20;
 
-    // Assign the imported data to the words variable
-    words = Object.keys(wordsData).map(key => ({ word: key, ...wordsData[key] }));
+    // set local storage words
+    localStorage.setItem("currentWordIndex", currentWordIndex);
+    // currentWordIndex = localStorage.getItem("currentWordIndex");
+    localStorage.setItem("currentListIndex", 0);
+    // currentListIndex = localStorage.getItem("currentListIndex");
+
+    // get sortedWords
+    let sortedWords = getSortedWordsJsonList(wordsData);
+
+    // Assign the sorted data to the words variable
+    words = Object.keys(sortedWords).map(key => ({ word: key, ...sortedWords[key] }));  
+    totalWordsCount = words.length;
+    // currentWordIndex
+
     displayWord();
 
     document.getElementById('randomize').addEventListener('change', function() {
@@ -108,13 +128,23 @@
       if (randomize) {
         words = shuffle(words);
       } else {
-        words.sort((a, b) => a.word.localeCompare(b.word));
+        words = getSortedWordsJsonList(wordsData);
       }
       currentWordIndex = 0;
       displayWord();
     });
 
+    function displayStats() {
+      console.log('currentWordIndex :', currentWordIndex);
+      console.log('totalWordsCount :', totalWordsCount);
+      document.getElementById('currentWordIndex').textContent = currentWordIndex;
+      document.getElementById('totalWordsCount').textContent = totalWordsCount;
+    }
+
     function displayWord() {
+      
+      displayStats();
+
       const wordData = words[currentWordIndex];
       document.getElementById('word').textContent = wordData.word;
       document.getElementById('meaning').textContent = '';
@@ -163,6 +193,18 @@
         [array[i], array[j]] = [array[j], array[i]];
       }
       return array;
+    }
+
+    function getSortedWordsJsonList(unSortedJsonList){
+      const ordered = Object.keys(unSortedJsonList).sort().reduce(
+        (obj, key) => { 
+          obj[key] = unSortedJsonList[key]; 
+          return obj;
+        }, 
+        {}
+      );
+      // console.log(JSON.stringify(ordered));
+      return ordered;
     }
   </script>
 </body>

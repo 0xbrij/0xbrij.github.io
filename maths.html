@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math Practice App</title>
+    <link rel="stylesheet" href="maths.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Math Puzzles</h1>
+      <div class="settings">
+        <label for="operationType">Type:</label>
+        <select id="operationType">
+          <option value="addition">Add</option>
+          <option value="subtraction">Sub</option>
+          <option value="multiplication">Mul</option>
+          <option value="all">All</option>
+        </select>
+        <label for="difficulty">Difficulty:</label>
+        <select id="difficulty">
+          <option value="easy">Easy</option>
+          <option value="median" selected>Median</option>
+          <option value="difficult">Difficult</option>
+          <option value="veryDifficult">Very Difficult</option>
+        </select>
+
+        <label for="questionCount">Number:</label>
+        <input type="number" id="questionCount" min="1" value="20" />
+
+        <button id="startQuizBtn">Start Quiz</button>
+      </div>
+
+      <div id="quizContainer" class="quiz-container hidden">
+        <h2 id="question">Question will appear here</h2>
+        <input type="text" id="answerInput" autocomplete="off" />
+        <p id="feedback"></p>
+        <div id="timer">Time: 0s</div>
+        <p id="remainingQuestions"></p>
+      </div>
+
+      <div id="resultsContainer" class="results-container hidden">
+        <h2>Results</h2>
+        <div id="performanceMessage" style="font-weight: bold; color: #4caf50"></div>
+        <p id="resultSummary"></p>
+        <button id="viewPastPerformanceBtn">View Past Performance</button>
+        <button id="clearHistoryBtn">Clear History</button>
+      </div>
+
+      <div id="pastPerformanceContainer" class="past-performance-container hidden">
+        <h2>Past Performance</h2>
+        <table id="pastPerformanceTable">
+          <thead>
+            <tr>
+              <th>Operation</th>
+              <th>Total Questions</th>
+              <th>Correct Answers</th>
+              <th>Total Time</th>
+              <th>Avg Time per quest</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <script src="maths.js"></script>
+  </body>
+</html>
