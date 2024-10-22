@@ -57,8 +57,13 @@ document.addEventListener("DOMContentLoaded", () => {
       num2,
       operation = questionType;
 
+    if (questionType === "all") {
+      const operations = ["addition", "subtraction", "multiplication"];
+      operation = operations[Math.floor(Math.random() * operations.length)];
+    }
+
     // Adjust question based on difficulty
-    if (questionType === "addition" || questionType === "subtraction") {
+    if (operation === "addition" || operation === "subtraction") {
       let digits = 2; // Default to median (2 digits)
       if (difficulty === "easy") digits = 1;
       else if (difficulty === "difficult") digits = 3;
@@ -66,7 +71,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       num1 = generateRandomNumber(digits, difficulty);
       num2 = generateRandomNumber(digits, difficulty);
-    } else if (questionType === "multiplication") {
+
+      if (num1 < num2) {
+        [num1, num2] = [num2, num1];
+      }
+    } else if (operation === "multiplication") {
       if (difficulty === "easy") {
         num1 = generateRandomNumber(1, "easy");
         num2 = generateRandomNumber(1, "easy");
@@ -80,11 +89,6 @@ document.addEventListener("DOMContentLoaded", () => {
         num1 = generateRandomNumber(2, "veryDifficult");
         num2 = generateRandomNumber(2, "veryDifficult");
       }
-    }
-
-    if (questionType === "all") {
-      const operations = ["addition", "subtraction", "multiplication"];
-      operation = operations[Math.floor(Math.random() * operations.length)];
     }
 
     let question = {};
